@@ -55,3 +55,20 @@ if alive:
     #Reset the second choice
   else:
     print("After a surprisingly short wait, a rowboat appears.\n As the rowboat nears shore you see there is nobody on board. \n The oars of the rowboat seem to be moving themselves. \n The contraption lets out a horrific hissing noise and expels a jet of steam \nas it slowly approaches your location.\n You board the strange beast and drift asleep as it begins to turn and propel you elsewhere. \n Some time later, you awake to find the boat has stopped moving. \n You lift your head to see the rowboat has shored near another cobblestone wall. \n Ahead, you see three stone archways leading down three paths. \n Between the archways and all around, \neverything is enclosed in glossy stone walls save for the calm lake behind. \n You disembark your boat and approach the three archways. \n They have been painted in three distinctive, vibrant colors. \n To the left, a cherry red archway. \nIn the middle, a banana yellow archway. \nTo the right, a blueberry colored archway.")
+
+if alive:
+  thirdChoice = input("Which archway will you pass? RED, YELLOW, or BLUE?:  \n").upper()
+
+if alive:
+  if thirdChoice =="RED":
+    print("lol Red = ded")
+    alive=False
+  elif thirdChoice =="YELLOW":
+    print("BEEEEEEES")
+    alive = False
+  elif thirdChoice =="GREEN":
+    print("Green is the color of envy. \nYou fall through a plot hole \n And land on a pile of $CASH$. \n You win?")
+  elif thirdChoice !="BLUE":
+    print("You got to the third choice and still haven't figured out what to type.\n We all lose.")
+  else:
+    print("You won, a brand new CAR! (In the game (Which means you actually won the game))")
