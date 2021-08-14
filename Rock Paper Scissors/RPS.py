@@ -21,3 +21,25 @@
 # name_selector = random.randint(0, len(names) - 1)
 # # print the element of the names list corresponding to the bill payer
 # print (f"{names[name_selector]} is going to buy the meal today!")
+
+
+# # Treasure map program but I use math instead of position[0]
+# row1 = ["⬜️","⬜️","⬜️"]
+# row2 = ["⬜️","⬜️","⬜️"]
+# row3 = ["⬜️","⬜️","⬜️"]
+# map = [row1, row2, row3]
+# print(f"{row1}\n{row2}\n{row3}")
+# position = input("Where do you want to put the treasure? ")
+#
+# # convert position from str to int
+# posint = int(position)
+# # use math to find col and row coords
+# row_coord = (posint % 10)
+# col_coord = int((posint - (posint % 10))/10)
+#
+# # select which row from map list
+# row_sel = map[row_coord-1]
+# # select which column from our row and replace with X
+# row_sel[col_coord - 1] = "X"
+# # print the final map
+# print(f"{row1}\n{row2}\n{row3}")
