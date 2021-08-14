@@ -72,6 +72,7 @@ scissors = '''
 ---.__(___)
 '''
 
+
 import random
 
 choice = [rock, paper, scissors]
@@ -81,16 +82,25 @@ player_choice= int(input("What do you choose? \nType 0 for Rock, 1 for Paper, or
 # assign random opponent choice
 opp_choice = random.randint(0, 2)
 
-# cool display of hands
-print("You chose:")
-print(choice[player_choice])
-print("Computer chose:")
-print(choice[opp_choice])
-
-# victory logic
-if (player_choice == opp_choice):
-  print("Draw!")
-elif (player_choice == (opp_choice -1)):
-  print("You lose!")
+if player_choice == 0 or player_choice == 1 or player_choice == 2:
+  good_choice = True
 else:
-  print("You Defeated!")
+  good_choice = False
+
+
+if good_choice:
+  # cool display of hands
+  print("You chose:")
+  print(choice[player_choice])
+  print("Computer chose:")
+  print(choice[opp_choice])
+
+  # victory logic
+  if (player_choice == opp_choice):
+    print("Draw!")
+  elif (player_choice == (opp_choice -1)):
+    print("You lose!")
+  else:
+    print("You Defeated!")
+else:
+  print("You have to choose 0, 1, or 2. Please try again.")
