@@ -43,3 +43,54 @@
 # row_sel[col_coord - 1] = "X"
 # # print the final map
 # print(f"{row1}\n{row2}\n{row3}")
+
+
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+import random
+
+choice = [rock, paper, scissors]
+
+#get player choice
+player_choice= int(input("What do you choose? \nType 0 for Rock, 1 for Paper, or 2 for Scissors.\n"))
+# assign random opponent choice
+opp_choice = random.randint(0, 2)
+
+# cool display of hands
+print("You chose:")
+print(choice[player_choice])
+print("Computer chose:")
+print(choice[opp_choice])
+
+# victory logic
+if (player_choice == opp_choice):
+  print("Draw!")
+elif (player_choice == (opp_choice -1)):
+  print("You lose!")
+else:
+  print("You Defeated!")
