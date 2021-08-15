@@ -73,36 +73,61 @@ scissors = '''
 '''
 
 
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
 import random
-# create list of ASCII art
+
 choice = [rock, paper, scissors]
 
 #get player choice
-player_choice= int(input("What do you choose? \nType 0 for Rock, 1 for Paper, or 2 for Scissors.\n"))
+player_choice= input("What do you choose? \nType 0 for Rock, 1 for Paper, or 2 for Scissors.\n")
 # assign random opponent choice
 opp_choice = random.randint(0, 2)
 
-# did player input an appropriate response or not?
-if player_choice == 0 or player_choice == 1 or player_choice == 2:
+if player_choice == "0" or player_choice == "1" or player_choice == "2":
   good_choice = True
+  player_choice = int(player_choice)
 else:
   good_choice = False
 
-#if player input a proper response
+
+
 if good_choice:
   # cool display of hands
-  print("You chose:")
-  print(choice[player_choice])
-  print("Computer chose:")
-  print(choice[opp_choice])
+  print(f"You chose:\n {choice[player_choice]}")
+  print(f"Computer chose:\n {choice[opp_choice]}")
 
   # victory logic
   if (player_choice == opp_choice):
     print("Draw!")
-  elif (player_choice == (opp_choice -1)):
+  elif (choice[player_choice] == choice[opp_choice -1]):
     print("You lose!")
   else:
-    print("You Defeated!")  #original Dark Souls 1 "you win" statement
-#if player input inappropriate response, kick them out
+    print("You Defeated!") #original Dark Souls 1 "you win" statement
 else:
   print("You have to choose 0, 1, or 2. Please try again.")
