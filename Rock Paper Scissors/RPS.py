@@ -74,7 +74,7 @@ scissors = '''
 
 
 import random
-
+# create list of ASCII art
 choice = [rock, paper, scissors]
 
 #get player choice
@@ -82,12 +82,13 @@ player_choice= int(input("What do you choose? \nType 0 for Rock, 1 for Paper, or
 # assign random opponent choice
 opp_choice = random.randint(0, 2)
 
+# did player input an appropriate response or not?
 if player_choice == 0 or player_choice == 1 or player_choice == 2:
   good_choice = True
 else:
   good_choice = False
 
-
+#if player input a proper response
 if good_choice:
   # cool display of hands
   print("You chose:")
@@ -101,6 +102,7 @@ if good_choice:
   elif (player_choice == (opp_choice -1)):
     print("You lose!")
   else:
-    print("You Defeated!")
+    print("You Defeated!")  #original Dark Souls 1 "you win" statement
+#if player input inappropriate response, kick them out
 else:
   print("You have to choose 0, 1, or 2. Please try again.")
