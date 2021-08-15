@@ -81,6 +81,9 @@ player_choice= input("What do you choose? \nType 0 for Rock, 1 for Paper, or 2 f
 # assign random opponent choice
 opp_choice = random.randint(0, 2)
 
+#if player inputs 0, 1, or 2 with leading/trailing whitespace, receive as an appropriate response
+player_choice = player_choice.strip()
+
 #error handling for improper inputs
 if player_choice == "0" or player_choice == "1" or player_choice == "2":
   good_choice = True
