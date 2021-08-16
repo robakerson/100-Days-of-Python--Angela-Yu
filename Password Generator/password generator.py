@@ -49,3 +49,15 @@
 #   if number%2 ==0:
 #     sum_of_evens += number
 # print(sum_of_evens)
+
+# # FizzBuzz but I don't do it the way she wants me to
+# for number in range(1, 101):
+#   print_val = number
+#   if number%3 == 0:
+#     if number%5 ==0:
+#       print_val= "FizzBuzz"
+#     else:
+#       print_val= "Fizz"
+#   elif number%5==0:
+#     print_val="Buzz"
+#   print(print_val)
