@@ -31,15 +31,15 @@ password = ""
 #Hard Level - Order of characters randomised:
 #e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
 
-nr_chars = nr_letters + nr_symbols + nr_numbers
-for number in range(0, nr_chars):
+
+for number in range(0, nr_letters + nr_symbols + nr_numbers):
   #Each element of answer_list is the list of letters, symbols, or numbers. We randomly select from those elements to determine what to type next.
   answer_list = []
-  for num_numbers in range(0,nr_numbers):
+  for num_numbers in range(nr_numbers):
     answer_list.append(numbers)
-  for num_letters in range(0,nr_letters):
+  for num_letters in range(nr_letters):
     answer_list.append(letters)
-  for num_symbols in range(0,nr_symbols):
+  for num_symbols in range(nr_symbols):
     answer_list.append(symbols)
   #char_type_sel determines whether we are mining for numbers, symbols, or letters
   char_type_sel = random.randint(0,len(answer_list)-1)
