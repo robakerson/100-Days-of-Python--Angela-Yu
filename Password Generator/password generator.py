@@ -42,3 +42,10 @@
 #     cur_max = score
 #
 # print(f"The highest score in the class is: {cur_max}")
+
+# #print sum of all even numbers between 1-100
+# sum_of_evens = 0
+# for number in range(1, 101):
+#   if number%2 ==0:
+#     sum_of_evens += number
+# print(sum_of_evens)
