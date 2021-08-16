@@ -1,4 +1,14 @@
 
+
+
+
+
+
+
+
+
+# practice programs for day 5:
+
 # fruits = ["apple", "peach", "pear"]
 #
 # # will print each element of the fruits list
