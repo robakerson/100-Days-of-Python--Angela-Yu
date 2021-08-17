@@ -1,5 +1,28 @@
+# robot maze, follow right wall
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
 
+#first two loops ensure seeding doesn't leave robot in infinite square pattern with no wall on the right
+while right_is_clear() & front_is_clear():
+    move()
+while right_is_clear():
+    turn_right()
 
+#run forever until we find the exit
+while at_goal()==False:
+    # if there is no wall at the right, turn right and go
+    if right_is_clear():
+        turn_right()
+        move()
+    # if there is a wall at the right and space to go forward, move forward.
+    else:
+        if front_is_clear():
+            move()
+        # if there is a wall to the right and ahead, turn left and reset the loop
+        else:
+            turn_left()
 
 # def turn_right():
 #     turn_left()
