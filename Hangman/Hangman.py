@@ -1,4 +1,18 @@
 
+# # step 3 we add a loop to allow multiple guesses
+# display = []
+# for _ in range(word_length):
+#     display += "_"
+# while "_" in display:
+#   guess = input("Guess a letter: ").lower()
+#   #Check guessed letter
+#   for position in range(word_length):
+#       letter = chosen_word[position]
+#       # print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}")
+#       if letter == guess:
+#           display[position] = letter
+#   print(display)
+# print("You win")
 
 # # select random word from list
 # import random
