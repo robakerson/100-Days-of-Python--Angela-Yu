@@ -3,16 +3,14 @@
 import random
 import hangman_words
 import hangman_art
-
 print(hangman_art.logo)
 chosen_word = random.choice(hangman_words.word_list)
 word_length = len(chosen_word)
-
 end_of_game = False
 lives = 6
 
 #Testing code
-print(f'Pssst, the solution is {chosen_word}.')
+# print(f'Pssst, the solution is {chosen_word}.')
 
 #Create blanks
 display = []
