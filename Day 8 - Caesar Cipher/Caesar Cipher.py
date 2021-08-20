@@ -8,7 +8,7 @@ text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
 #caesar cipher encrypt function
-def encrypt(text, shift):
+def encrypt(plain_text, shift_amount):
   encrypted_ans = ""
   # for loop goes 0, 1, 2... as many letters as exist in "text"
   for letter in range(len(text)):
@@ -19,8 +19,22 @@ def encrypt(text, shift):
     encrypted_ans += alphabet[shift_index]
   print(encrypted_ans)
 
+#caesar cipher decrypt function
+def decrypt(plain_text, shift_amount):
+  decrypted_text = ""
+  for letter in plain_text:
+    shift_index = alphabet.index(letter) - shift_amount
+    decrypted_text += alphabet[shift_index]
+  print(decrypted_text)
 
-encrypt(text,shift)
+#determine if user is trying to encode or decode and call appropriate function
+if direction == "encode":
+  encrypt(plain_text=text, shift_amount=shift)
+elif direction == "decode":
+  decrypt(plain_text=text, shift_amount=shift)
+else:
+  print("Couldn't figure out if you wanted to decode or encode")
+
 
 
 # # prime number checker
