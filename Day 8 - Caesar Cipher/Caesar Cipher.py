@@ -1,6 +1,8 @@
 
+# alphabet list will be referenced to replace letters during encryption and decryption
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
+#ask user for all required inputs for caesar cipher program
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
@@ -8,7 +10,9 @@ shift = int(input("Type the shift number:\n"))
 #caesar cipher encrypt function
 def encrypt(text, shift):
   encrypted_ans = ""
+  # for loop goes 0, 1, 2... as many letters as exist in "text"
   for letter in range(len(text)):
+    #
     shift_index = (alphabet.index(text[letter]) + shift)
     if shift_index > 25:
       shift_index -= 26
