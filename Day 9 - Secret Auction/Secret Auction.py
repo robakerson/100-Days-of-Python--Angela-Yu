@@ -1,4 +1,39 @@
 
+from replit import clear
+clear()
+
+#var inits
+#bid list will hold dictionary of all bids
+bid_list = {}
+high_bid = 0
+high_bidder = ""
+still_bidding= True
+
+# repeat program until user says "no"
+while still_bidding:
+  cur_name = input("What is your name?:")
+  cur_bid = input("What is your bid?: $")
+  # add entry to bid_list dictionary with Key:Value being cur_name: cur_bid
+  bid_list[cur_name] = cur_bid
+  continue_prompt = input("Are there more bidders? Type 'yes' or 'no': ")
+  #kicks user out of loop if they are done bidding
+  if continue_prompt == 'no':
+    still_bidding = False
+  #kick user out if they don't type "yes" or "no"
+  elif continue_prompt != 'yes':
+    print("I'm not sure if you meant to continue or not. Bidding will now close")
+    still_bidding = False
+  else:
+    clear()
+    
+#loop through bid_list to find highest bidder
+for bidder in bid_list:
+  if int(bid_list[bidder]) > high_bid:
+    high_bid = int(bid_list[bidder])
+    high_bidder = bidder
+
+print(f"The winner is {high_bidder} with a bid of ${high_bid}")
+
 
 
 # travel_log= {
