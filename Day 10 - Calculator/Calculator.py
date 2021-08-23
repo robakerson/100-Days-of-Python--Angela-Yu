@@ -1,4 +1,35 @@
 
+
+#Calculator
+#Add
+def add(n1, n2):
+  return n1 + n2
+#subtract
+def subtract(n1, n2):
+  return n1 - n2
+#multiply
+def multiply(n1, n2):
+  return n1 * n2
+#divide
+def divide(n1, n2):
+  return n1 / n2
+ #dictionary holds the operations we will use. user input is the key, value determines the function to call from above
+operations = {
+  "+": add,
+  "-": subtract,
+  "*": multiply,
+  "/": divide
+}
+#user inputs number, operation, number2
+num1 = int(input("What's the first number?: "))
+for symbol in operations:
+  print(symbol)
+operation_symbol = input("Pick an operation from the line above:" )
+num2 = int(input("What's the second number?: "))
+# call one of the 4 operation functions based on which user input is given and call that function with number inputs
+answer= operations[operation_symbol](num1,num2)
+print(f"{num1} {operation_symbol} {num2} = {answer}")
+
 # #leap year function
 # def is_leap(year):
 #   if year % 4 == 0:
