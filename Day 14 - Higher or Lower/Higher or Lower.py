@@ -3,12 +3,11 @@ from random import randint
 from game_data import data
 from replit import clear
 
-clear()
-print(art.logo)
-
+#returns one random competitor
 def pick_competitor():
   return data[randint(0,49)]
 
+#return true if player's guess had more followers than other competitor
 def did_player_win(guess, competitor_a, competitor_b):
   if competitor_a['follower_count'] > competitor_b['follower_count']:
     if guess == 'a':
@@ -21,6 +20,8 @@ def did_player_win(guess, competitor_a, competitor_b):
     else:
       return False
 
+#if fed empty string, returns 2 random competitors.
+#if fed legitimate competitor, then one becomes that competitor and two becomes random competitor
 def pick_competitors(prev_competitor):
   if not prev_competitor:
     one = pick_competitor()
@@ -31,6 +32,7 @@ def pick_competitors(prev_competitor):
     two = pick_competitor()
   return one, two
 
+#feed all data, print all relavent text, ask for player guess, return True if win and False if lost
 def play_round(cur_score, competitor_one, competitor_two):
   if cur_score > 0:
     print(f"You're right! Current score: {cur_score}")
@@ -43,16 +45,24 @@ def play_round(cur_score, competitor_one, competitor_two):
   else:
     return False
 
+#controls end game display
 def end_game(cur_score):
   clear()
   print(art.logo)
   print(f"Sorry, that's wrong. Final score: {cur_score}")
 
+#var inits
 score = 0
 game_on = True
+#pick 2 random competitors
 competitor_one, competitor_two = pick_competitors('')
+
+clear()
+print(art.logo)
+#execute another play_round as long as player guesses correctly
 while play_round(score, competitor_one, competitor_two):
   score += 1
+  #competitor one becomes previous competitor 2 if player guessed correctly
   competitor_one, competitor_two = pick_competitors(competitor_two)
   clear()
   print(art.logo)
