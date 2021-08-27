@@ -51,8 +51,8 @@ def process_selection(selection):
     elif selection == 'off':
         return '', False
     else:
-        purchase = selection
-        return purchase, True
+        return selection, True
+
 
 def insert_money():
     print("Please insert coins.")
@@ -63,17 +63,53 @@ def insert_money():
     cash = quarters * 0.25 + dimes * 0.1 + nickels * 0.05 + pennies * 0.01
     return cash
 
+
+def check_ingredient_qty(ingredients):
+    for ingredient in ingredients:
+        qty_ingredient_needed = MENU[coffee_purchased]['ingredients'][ingredient]
+        qty_ingredient_stock = resources[ingredient]
+        if qty_ingredient_needed > qty_ingredient_stock:
+            print(f"I'm sorry, there is not enough {ingredient}.")
+            return False
+    return True
+
+
+def check_cost(coffee_cost, available_money):
+    if coffee_cost > available_money:
+        print("Sorry, that's not enough money. Money refunded")
+        return False
+    else:
+        return True
+
+
 def buy_latte():
     return
+
 
 money = 0
 machine_on = True
 
+
 while machine_on:
     user_selection = get_user_input()
     coffee_purchased, machine_on = process_selection(user_selection)
-    coffee_ingredients = MENU[coffee_purchased]['ingredients']
-    print(coffee_purchased)
-    print(coffee_ingredients)
+    if coffee_purchased:
+        coffee_ingredients = MENU[coffee_purchased]['ingredients']
+        # print(coffee_purchased)
+        # print(coffee_ingredients)
+        serve_coffee = check_ingredient_qty(coffee_ingredients)
+        if serve_coffee:
+            cost = MENU[coffee_purchased]['cost']
+            money_inserted = insert_money()
+            enough_money = check_cost(cost, money_inserted)
+            if enough_money:
+                money += cost
+                if money_inserted > cost:
+                    customer_change = money_inserted - cost
+                    formatted_change = "{:.2f}".format(customer_change)
+                    print(f"Here is ${formatted_change} change!")
+                for ingredient in coffee_ingredients:
+                # print (ingredient)
+                    resources[ingredient] -= MENU[coffee_purchased]['ingredients'][ingredient]
 
 # print(MENU['latte']['cost'])
