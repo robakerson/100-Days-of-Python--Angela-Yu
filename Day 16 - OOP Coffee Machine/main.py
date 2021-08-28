@@ -1,23 +1,15 @@
-# import turtle
-# timmy = turtle.Turtle()
-# timmy.shape("turtle")
-# timmy.color('coral')
-# timmy.forward(100)
-# my_screen = turtle.Screen()
-# print(my_screen.canvheight)
-# my_screen.exitonclick()
+from menu import Menu, MenuItem
+from coffee_maker import CoffeeMaker
+from money_machine import MoneyMachine
 
-from prettytable import PrettyTable
+coffee_menu = Menu()
+coin_machine = MoneyMachine()
+coffee_machine= CoffeeMaker()
 
-table = PrettyTable()
 
-table.field_names = ["Pokemon Name", "Type"]
-table.add_rows ([
-    ["Pikachu", "Electric"],
-    ["Squirtle", "Water"],
-    ["Charmander", "Fire"],
-])
-table.align = 'l'
 
-print(table)
-
+# items = coffee_menu.get_items()
+# latte= coffee_menu.find_drink('latte')
+#
+# print(items)
+# print(latte.ingredients)
