@@ -7,10 +7,8 @@ coin_machine = MoneyMachine()
 coffee_machine= CoffeeMaker()
 
 # print(coffee_machine.report())
-
 # items = coffee_menu.get_items()
 # latte= coffee_menu.find_drink('latte')
-#
 # print(items)
 # print(latte.ingredients)
 
@@ -32,17 +30,21 @@ def process_user_input(input):
 
 
 # print(coin_machine.make_payment(2.5))
-
 # print(coffee_menu.find_drink('latte').cost)
 #
-user_input = input(f"What would you like ({coffee_menu.get_items()})?")
-drink, machine_on = process_user_input(user_input)
+# user_input = input(f"What would you like ({coffee_menu.get_items()})?")
+# drink, machine_on = process_user_input(user_input)
 #
 # print(drink)
 # print(coffee_machine.is_resource_sufficient(drink))
 
+machine_on = True
+
 #machine turns off if user types "off"
 while machine_on:
+    user_input = input(f"What would you like ({coffee_menu.get_items()})?")
+    drink, machine_on = process_user_input(user_input)
+
     # if user doesn't input proper drink name we don't want to run some of the below code as it will throw errors
     if drink:
         # this is needed to pass to is_resource_sufficient as it requires a Menuitem object and not a string
@@ -55,6 +57,3 @@ while machine_on:
             if coin_machine.make_payment(drink_cost):
                 # deduct ingredients from coffee_machine and print proper message
                 coffee_machine.make_coffee(drink_to_make)
-    # ask user for input again and go back to start of loop if user gives proper response
-    user_input = input(f"What would you like ({coffee_menu.get_items()})?")
-    drink, machine_on = process_user_input(user_input)
