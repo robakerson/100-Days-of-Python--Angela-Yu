@@ -4,13 +4,13 @@ from data import question_data
 from quiz_brain import QuizBrain
 
 question_bank = []
-for question in question_data:
-    text = question['text']
-    answer = question['answer']
-    cur_question = Question(text, answer)
-    question_bank.append(cur_question)
+for question in question_data:  # each entry in question_data is a dictionary
+    text = question['question']
+    answer = question['correct_answer']
+    cur_question = Question(text, answer)  # create question object from current text:answer dictionary KVP
+    question_bank.append(cur_question)  # append current question to question_bank list
 
-quiz = QuizBrain(question_bank)
+quiz = QuizBrain(question_bank)  # QuizBrain object contains the methods we will use to run our quiz!
 while quiz.still_has_questions():
     quiz.next_question()
 
