@@ -1,14 +1,17 @@
 
 from question_model import Question
 from data import question_data
+from quiz_brain import QuizBrain
 
 question_bank = []
-
 for question in question_data:
     text = question['text']
     answer = question['answer']
     cur_question = Question(text, answer)
     question_bank.append(cur_question)
+
+quiz = QuizBrain(question_bank)
+quiz.next_question()
 
 # print(question_bank[0].text)
 
