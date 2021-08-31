@@ -11,14 +11,26 @@ tim.color("red")
 
 
 colors = ["mint cream", "pale turquoise", "navy", "dodger blue", "yellow", "maroon", "violet red"]
-number_of_sides = 2
-while number_of_sides < 8:
-    number_of_sides += 1
-    angle = 360/number_of_sides
+headings = [0, 90, 180, 270]
+
+# random walk
+tim.pensize(3)
+tim.speed(10)
+for _ in range (300):
     tim.color(random.choice(colors))
-    for _ in range(number_of_sides):
-        tim.forward(100)
-        tim.right(angle)
+    tim.setheading(random.choice(headings))
+    tim.forward(30)
+
+
+
+# number_of_sides = 2
+# while number_of_sides < 8:
+#     number_of_sides += 1
+#     angle = 360/number_of_sides
+#     tim.color(random.choice(colors))
+#     for _ in range(number_of_sides):
+#         tim.forward(100)
+#         tim.right(angle)
 
 
 # # drawing a dotted line
