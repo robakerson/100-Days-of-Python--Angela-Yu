@@ -25,13 +25,16 @@ headings = [0, 90, 180, 270]
 
 # spirograph!
 tim.speed(0)
-number_of_turns = 72
-for _ in range(number_of_turns):
-    tim.color(random_color())
-    tim.circle(100)
-    tim.right(360/number_of_turns)
 
 
+def draw_spirograph(number_of_turns):
+    for _ in range(number_of_turns):
+        tim.color(random_color())
+        tim.circle(100)
+        tim.right(360 / number_of_turns)
+
+
+draw_spirograph(10)
 
 # # random walk
 # tim.pensize(3)
