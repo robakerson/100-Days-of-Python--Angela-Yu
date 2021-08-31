@@ -1,9 +1,19 @@
+import turtle
 from turtle import Turtle, Screen
 import random
 
 # initialize
+turtle.colormode(255)  # allows us to use 0-255 for rgb values
 tim = Turtle()
 screen = Screen()
+
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    return (r,g,b)
+
 
 # attributes
 tim.shape("turtle")
@@ -13,14 +23,22 @@ tim.color("red")
 colors = ["mint cream", "pale turquoise", "navy", "dodger blue", "yellow", "maroon", "violet red"]
 headings = [0, 90, 180, 270]
 
-# random walk
-tim.pensize(3)
-tim.speed(10)
-for _ in range (300):
-    tim.color(random.choice(colors))
-    tim.setheading(random.choice(headings))
-    tim.forward(30)
+# spirograph!
+tim.speed(0)
+for _ in range(72):
+    tim.color(random_color())
+    tim.circle(100)
+    tim.right(5)
 
+
+
+# # random walk
+# tim.pensize(3)
+# tim.speed(10)
+# for _ in range (300):
+#     tim.color(random.choice(colors))
+#     tim.setheading(random.choice(headings))
+#     tim.forward(30)
 
 
 # number_of_sides = 2
