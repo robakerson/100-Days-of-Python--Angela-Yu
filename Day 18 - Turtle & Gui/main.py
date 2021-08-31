@@ -25,10 +25,11 @@ headings = [0, 90, 180, 270]
 
 # spirograph!
 tim.speed(0)
-for _ in range(72):
+number_of_turns = 72
+for _ in range(number_of_turns):
     tim.color(random_color())
     tim.circle(100)
-    tim.right(5)
+    tim.right(360/number_of_turns)
 
 
 
