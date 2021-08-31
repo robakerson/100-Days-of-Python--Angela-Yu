@@ -7,18 +7,29 @@ import colorgram
 turtle.colormode(255)  # allows us to use 0-255 for rgb values
 tim = Turtle()
 screen = Screen()
+tim.penup()
 
-colors = colorgram.extract('painting2.jpg', 10)
-list_of_colors = []
+# #  extract colors from .jpg
+# colors = colorgram.extract('painting2.jpg', 30)
+# list_of_colors = []
+# for value in colors:
+#     r = value.rgb.r
+#     g = value.rgb.g
+#     b = value.rgb.b
+#     list_of_colors.append((r,g,b))
+# print(list_of_colors)
 
-for value in colors:
-    r = value.rgb.r
-    g = value.rgb.g
-    b = value.rgb.b
-    list_of_colors.append((r,g,b))
+list_of_colors = [(26, 109, 164), (194, 38, 81), (237, 161, 50), (234, 215, 86), (227, 237, 229), (222, 137, 176), (143, 109, 57), (101, 197, 219), (206, 166, 29), (21, 58, 132), (212, 75, 91), (238, 89, 49), (141, 208, 227), (119, 192, 141), (6, 160, 87), (4, 186, 179), (106, 108, 198), (136, 29, 72), (98, 51, 37), (25, 153, 211), (228, 168, 188), (153, 213, 195), (173, 186, 221), (234, 174, 162), (30, 91, 95), (87, 47, 34), (34, 46, 84)]
 
-
-print(list_of_colors)
+ypos = -255
+for _ in range(10):
+    xpos = -255
+    for _ in range(10):
+        tim.setpos(xpos,ypos)
+        tim.color(random.choice(list_of_colors))
+        tim.dot(20)
+        xpos += 50
+    ypos +=50
 
 # def random_color():
 #     r = random.randint(0, 255)
