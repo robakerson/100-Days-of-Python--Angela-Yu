@@ -1,40 +1,52 @@
 import turtle
 from turtle import Turtle, Screen
 import random
+import colorgram
 
 # initialize
 turtle.colormode(255)  # allows us to use 0-255 for rgb values
 tim = Turtle()
 screen = Screen()
 
+colors = colorgram.extract('painting2.jpg', 10)
+list_of_colors = []
 
-def random_color():
-    r = random.randint(0, 255)
-    g = random.randint(0, 255)
-    b = random.randint(0, 255)
-    return (r,g,b)
-
-
-# attributes
-tim.shape("turtle")
-tim.color("red")
+for value in colors:
+    r = value.rgb.r
+    g = value.rgb.g
+    b = value.rgb.b
+    list_of_colors.append((r,g,b))
 
 
-colors = ["mint cream", "pale turquoise", "navy", "dodger blue", "yellow", "maroon", "violet red"]
-headings = [0, 90, 180, 270]
+print(list_of_colors)
 
-# spirograph!
-tim.speed(0)
-
-
-def draw_spirograph(number_of_turns):
-    for _ in range(number_of_turns):
-        tim.color(random_color())
-        tim.circle(100)
-        tim.right(360 / number_of_turns)
+# def random_color():
+#     r = random.randint(0, 255)
+#     g = random.randint(0, 255)
+#     b = random.randint(0, 255)
+#     return (r, g, b)
 
 
-draw_spirograph(10)
+# # attributes
+# tim.shape("turtle")
+# tim.color("red")
+#
+#
+# colors = ["mint cream", "pale turquoise", "navy", "dodger blue", "yellow", "maroon", "violet red"]
+# headings = [0, 90, 180, 270]
+#
+# # spirograph!
+# tim.speed(0)
+#
+#
+# def draw_spirograph(number_of_turns):
+#     for _ in range(number_of_turns):
+#         tim.color(random_color())
+#         tim.circle(100)
+#         tim.right(360 / number_of_turns)
+#
+#
+# draw_spirograph(10)
 
 # # random walk
 # tim.pensize(3)
