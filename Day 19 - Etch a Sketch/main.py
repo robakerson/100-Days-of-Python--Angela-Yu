@@ -1,4 +1,5 @@
 from turtle import Turtle, Screen
+from random import randint
 
 #  initialize turtle & screen
 screen = Screen()
@@ -12,13 +13,7 @@ terry = Turtle("turtle")
 tyler = Turtle("turtle")
 theo = Turtle("turtle")
 dave_grohl = Turtle("turtle")
-
 turtles = [tim, tom, terry, tyler, theo, dave_grohl]
-
-# tim.up()
-# # tim.shape("turtle")
-# tim.setpos(-230, -100)
-yposition = -75
 
 
 def turtle_setup(turtle, color, yposition):  # turtle_setup makes new turtle with chosen parameters
@@ -27,10 +22,30 @@ def turtle_setup(turtle, color, yposition):  # turtle_setup makes new turtle wit
     turtle.setpos(-230, yposition)
 
 
+yposition = -75
 for num in range(6):  # set up 6 turtles
     turtle_setup(turtles[num], colors[num], yposition)
     yposition += 30
 
+
+# ensure user input is good before running race
+is_race_on = False
+if user_bet in colors:
+    is_race_on = True
+
+while is_race_on:
+    for turtle in turtles:
+        random_distance = randint(0, 10)
+        turtle.forward(random_distance)
+        if turtle.xcor() > 230:  # winning condition
+            winner = turtle  # current turtle is the winner
+            if winner.pencolor() == user_bet:
+                print(f"You win! The winning color is {winner.pencolor()}.")
+            else:
+                print(f"You lost! The winning color is {winner.pencolor()}.")
+            is_race_on = False  # stop the race!
+
+# print(f"Winner is {winner.pencolor()}")
 
 # def move_forwards():
 #     tim.forward(10)
