@@ -10,9 +10,12 @@ screen.tracer(0)
 
 
 right_paddle = Paddle(350)
+left_paddle = Paddle(-350)
 screen.listen()
 screen.onkey(right_paddle.paddle_up, "Up")
 screen.onkey(right_paddle.paddle_down, "Down")
+screen.onkey(left_paddle.paddle_up, "Left")
+screen.onkey(left_paddle.paddle_down, "Right")
 
 game_is_on = True
 while game_is_on:
