@@ -2,11 +2,11 @@ from turtle import Turtle
 MOVEMENT_INCREMENT = 20
 
 class Paddle(Turtle):
-    def __init__(self, xcor):
+    def __init__(self, x_cor):
         super().__init__()
         self.turtlesize(stretch_wid=5, stretch_len=1)
         self.up()
-        self.setpos(xcor, 0)
+        self.setpos(x_cor, 0)
         self.shape("square")
         self.color("white")
 
