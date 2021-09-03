@@ -33,4 +33,10 @@ while game_is_on:
     if ball.distance(right_paddle) < 50 and ball.xcor() > 320 or ball.distance(left_paddle) < 50 and ball.xcor() < -320:
         ball.hit_paddle()
 
+    if ball.xcor() > 350:
+        ball.score_left()
+    if ball.xcor() < -350:
+        ball.score_right()
+
+
 screen.exitonclick()

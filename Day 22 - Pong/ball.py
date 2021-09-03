@@ -23,12 +23,19 @@ class Ball(Turtle):
         if self.ycor() < -WALL_BOUNDARY:
             self.y_move = MOVEMENT_INCREMENT
 
-
     def hit_paddle(self):
         self.x_move *= -1
 
-        # if self.xcor() > WALL_BOUNDARY:
-        #     self.moving_right = False
-        #
-        # if self.xcor() < -WALL_BOUNDARY:
-        #     self.moving_right = False
+    def score_right(self):
+        self.setpos(0, 0)
+        self.x_move *= -1
+
+    def score_left(self):
+        self.setpos(0, 0)
+        self.x_move *= -1
+
+    # def check_for_score(self):
+    #     if self.xcor() > 350:
+    #         self.score_left()
+    #     if self.xcor() < -350:
+    #         self.score_right()
