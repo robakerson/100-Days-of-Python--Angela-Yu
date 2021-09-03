@@ -16,12 +16,16 @@ class Ball(Turtle):
         new_y = self.ycor() + self.y_move
         self.setpos(new_x, new_y)
 
-    def check_collision(self):
+    def check_collision(self):  # reverse y direction if hit top or bottom walls
         if self.ycor() > WALL_BOUNDARY:
             self.y_move = -MOVEMENT_INCREMENT
 
         if self.ycor() < -WALL_BOUNDARY:
             self.y_move = MOVEMENT_INCREMENT
+
+
+    def hit_paddle(self):
+        self.x_move *= -1
 
         # if self.xcor() > WALL_BOUNDARY:
         #     self.moving_right = False
