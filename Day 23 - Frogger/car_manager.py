@@ -23,7 +23,7 @@ class CarManager():
 
     def move_cars(self, player_level):
         for car in self.all_cars:
-            new_x_cor = car.xcor() - STARTING_MOVE_DISTANCE - MOVE_INCREMENT * player_level
+            new_x_cor = car.xcor() - STARTING_MOVE_DISTANCE - (MOVE_INCREMENT * player_level - 1)
             car.setpos(new_x_cor, car.ycor())
             if car.xcor() < -320:
                 self.all_cars.remove(car)
