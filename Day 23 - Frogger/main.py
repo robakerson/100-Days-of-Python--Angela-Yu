@@ -7,16 +7,24 @@ from scoreboard import Scoreboard
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
+screen.title("FROGGER!")
 
 player = Player()
 screen.listen()
 screen.onkeypress(fun=player.move_player, key="Up")
 
 car = CarManager()
-
+player_level = 0
 game_is_on = True
+new_car = 0
 while game_is_on:
-    time.sleep(0.1)
-    screen.update()
     if player.check_finish_line():
         player.reset_player()
+        player_level += 1
+    car.move_cars(player_level)
+    time.sleep(0.1)
+    screen.update()
+    new_car += 1
+    if new_car == 7:
+        car.new_cars()
+        new_car = 0
