@@ -10,4 +10,11 @@
 with open("Input/Names/invited_names.txt") as file:
     list_of_names = file.readlines()
 
+for _ in range(len(list_of_names)):
+    list_of_names[_] = list_of_names[_].strip("\n")
+
 print(list_of_names)
+
+for name in list_of_names:
+    with open("Input/Letters/starting_letter.txt") as file:
+        
