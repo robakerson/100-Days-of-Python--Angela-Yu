@@ -1,16 +1,9 @@
-# This is a sample Python script.
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# # open a file, read and print contents.
+# with open("my_file.txt") as file:
+#     contents = file.read()
+#     print(contents)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+with open("my_file.txt", mode="w") as file:  # mode "w" to rewrite the whole file. mode "a" for append!
+    file.write("\nNew text.")
