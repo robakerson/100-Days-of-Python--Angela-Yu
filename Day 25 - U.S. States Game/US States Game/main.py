@@ -11,28 +11,18 @@ turtle.shape(image)
 states = pandas.read_csv("50_states.csv")
 state_writer = StateWriter()
 
-# answer_state = screen.textinput(title="Guess the State", prompt="What's another state's name?").title()
-# cur_state = states[states.state == answer_state]
-# print(cur_state)
-# print(cur_state["x"])
-
-states_already_guessed = []
-correct_guesses = 0
-while correct_guesses < 50:
+states_already_guessed = []  # will hold correct guesses
+correct_guesses = 0  # simple track of correct guesses
+while correct_guesses < 50:  # keep going until all states guessed
     answer_state = screen.textinput(title=f"{correct_guesses}/50 Guess the State", prompt="What's another state's name?").title()
-    cur_state = states[states.state == answer_state]
-    if not cur_state.empty:
-        if answer_state not in states_already_guessed:
+    cur_state = states[states.state == answer_state]  # grab the line from our .csv that corresponds to our guess
+    if not cur_state.empty:  # if this is empty, we guessed wrong, go back to start of loop
+        if answer_state not in states_already_guessed:  # do nothing if player guesses the same state twice
             states_already_guessed.append(answer_state)
             correct_guesses = len(states_already_guessed)
+            state_coordinates = (int(cur_state.x), int(cur_state.y))
+            state_writer.write_state(state_coordinates, answer_state)
         print(states_already_guessed)
-
-# if not cur_state.empty:
-#     state_x_cor = int(cur_state.x)
-#     state_y_cor = int(cur_state.y)
-#     state_coordinates = (state_x_cor, state_y_cor)
-#     state_writer.write_state(state_coordinates, answer_state)
-#     states_already_guessed.append(answer_state)
 
 
 turtle.mainloop()
