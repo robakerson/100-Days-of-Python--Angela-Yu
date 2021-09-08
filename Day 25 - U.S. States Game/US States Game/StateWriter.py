@@ -1,4 +1,5 @@
 from turtle import Turtle
+FONT = ("courier", 12, "normal")
 
 
 class StateWriter(Turtle):
@@ -8,6 +9,6 @@ class StateWriter(Turtle):
         self.color("Black")
         self.hideturtle()
 
-
-    def write_state(self, coordinates):
-        self.write("")
+    def write_state(self, coordinates, state):
+        self.setpos(coordinates)
+        self.write(state, align="left", font=FONT)
