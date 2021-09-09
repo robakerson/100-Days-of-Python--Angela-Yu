@@ -28,10 +28,11 @@ while correct_guesses < 50:  # keep going until all states guessed
 # if user exits before guessing all states, generate "states to learn" file with remaining states
 if correct_guesses < 50:
     state_list = states.state.tolist()  # put all states in a list
-    states_to_learn = []
-    for state in state_list:
-        if state not in states_already_guessed:
-            states_to_learn.append(state)
+    states_to_learn = [state for state in state_list if state not in states_already_guessed]
+    # states_to_learn
+    # for state in state_list:
+    #     if state not in states_already_guessed:
+    #         states_to_learn.append(state)
     with open("states_to_learn.csv", "w") as file:
         file.write("\n".join(states_to_learn))
 
