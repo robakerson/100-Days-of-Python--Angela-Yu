@@ -20,16 +20,19 @@ reps = 0
 def start_timer():
     global reps
     reps += 1
-    work_sec = WORK_MIN
-    short_break_sec = SHORT_BREAK_MIN
-    long_break_sec = LONG_BREAK_MIN
+    work_sec = WORK_MIN * 60
+    short_break_sec = SHORT_BREAK_MIN * 60
+    long_break_sec = LONG_BREAK_MIN * 60
 
     if reps % 2 != 0:  # reps 1,3,5,7
         count_down(work_sec)
+        timer_label.config(text="WORK", fg=GREEN)
     elif reps == 8:
         count_down(long_break_sec)
+        timer_label.config(text="Break", fg=RED)
     else:
         count_down(short_break_sec)
+        timer_label.config(text="Break", fg=PINK)
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 def count_down(count):
@@ -42,6 +45,8 @@ def count_down(count):
 
     if count > 0:
         window.after(1000, count_down, count - 1)
+    else:
+        start_timer()
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = tkinter.Tk()
