@@ -23,8 +23,16 @@ with open("nato_phonetic_alphabet.csv") as file:
 
 NATO_dict = {row.letter: row.code for (index, row) in NATO_phonetic.iterrows()}
 # print(NATO_dict)
+good_word = False
 
-user_word = input("Please input a word to translate into the NATO phonetic alphabet!: ")
+while not good_word:
+    user_word = input("Please input a word to translate into the NATO phonetic alphabet!: ")
+    try:
+        code_words = [NATO_dict[letter.upper()] for letter in user_word]
+        good_word = True
+    except KeyError:
+        print("Please only enter letters that exist ")
 
-code_words = [NATO_dict[letter.upper()] for letter in user_word]
+
+# code_words = [NATO_dict[letter.upper()] for letter in user_word]
 print(code_words)
