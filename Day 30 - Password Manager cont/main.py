@@ -23,7 +23,19 @@ def generate_password():
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def find_password():
-    print("test")
+    website = website_entry.get()
+    try:
+        with open("passwords.json", "r") as file:
+            data = json.load(file)
+            try:
+                website_data= data[website]
+                messagebox.showinfo(title="Here is your password!", message=f"Website: {website},\n"
+                                                                            f"Email: {website_data['email']},\n"
+                                                                            f"Password: {website_data['password']}")
+            except KeyError:
+                messagebox.showinfo(title="Bad Website", message="No details for the website exists.")
+    except FileNotFoundError:
+        messagebox.showerror(title="UH OH", message="No Data File Found")
 
 def save_password():
     website = website_entry.get()
