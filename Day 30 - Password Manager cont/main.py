@@ -5,6 +5,8 @@ import random
 import pyperclip
 import json
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+
+
 def generate_password():
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -20,6 +22,8 @@ def generate_password():
     pyperclip.copy(password)
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
+def find_password():
+    print("test")
 
 def save_password():
     website = website_entry.get()
@@ -71,8 +75,10 @@ email_label.grid(column=1, row=3, sticky="EW")
 password_label.grid(column=1, row=4, sticky="EW")
 
 # Buttons
+search_button = tkinter.Button(text="Search", command=find_password)
 generate_button = tkinter.Button(text="Generate Password", command=generate_password)
 add_button = tkinter.Button(text="Add", command=save_password)
+search_button.grid(column=3,row=2, sticky="EW")
 generate_button.grid(column=3, row=4, sticky="EW")
 add_button.grid(column=2, row=5, columnspan=2, sticky="EW")
 
@@ -82,7 +88,7 @@ email_entry = tkinter.Entry()
 email_entry.insert(0, "DefaultEmail@gmail.com")
 password_entry = tkinter.Entry()
 website_entry.focus()
-website_entry.grid(column=2, row=2, columnspan=2, sticky="EW")
+website_entry.grid(column=2, row=2, sticky="EW")
 email_entry.grid(column=2, row=3, columnspan=2, sticky="EW")
 password_entry.grid(column=2, row=4, sticky="EW")
 
