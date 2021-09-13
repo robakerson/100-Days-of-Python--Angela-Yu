@@ -20,7 +20,8 @@ def generate_password():
     password_entry.delete(0, "end")
     password_entry.insert(0, password)
     pyperclip.copy(password)
-# ---------------------------- SAVE PASSWORD ------------------------------- #
+# ---------------------------- FIND PASSWORD ------------------------------- #
+
 
 def find_password():
     website = website_entry.get()
@@ -36,6 +37,9 @@ def find_password():
                 messagebox.showinfo(title="Bad Website", message="No details for the website exists.")
     except FileNotFoundError:
         messagebox.showerror(title="UH OH", message="No Data File Found")
+
+# ---------------------------- SAVE PASSWORD ------------------------------- #
+
 
 def save_password():
     website = website_entry.get()
