@@ -29,7 +29,7 @@ def find_password():
         with open("passwords.json", "r") as file:
             data = json.load(file)
             try:
-                website_data= data[website]
+                website_data = data[website]
                 messagebox.showinfo(title="Here is your password!", message=f"Website: {website},\n"
                                                                             f"Email: {website_data['email']},\n"
                                                                             f"Password: {website_data['password']}")
