@@ -18,10 +18,23 @@ def generate_random_word():
     canvas.itemconfig(lang_text, text="French", fill="black")
     canvas.itemconfig(word_text, text=current_card["French"], fill="black")
     canvas.itemconfig(card_image, image=card_front)
-    flip_timer= window.after(3000, flip_card)
+    flip_timer = window.after(3000, flip_card)
+
+# ---------------------------- Read from .csv and save to .csv ------------------------------- #
 
 
-fr_en = pandas.read_csv("data/french_words.csv")
+def card_known():
+    words_to_learn.remove(current_card)
+    remaining_words = pandas.DataFrame(words_to_learn, columns=["French", "English"])
+    remaining_words.to_csv("data/words_to_learn.csv")
+    generate_random_word()
+
+
+try:
+    fr_en = pandas.read_csv("data/words_to_learn.csv")
+except FileNotFoundError:
+    fr_en = pandas.read_csv("data/french_words.csv")
+
 words_to_learn = fr_en.to_dict(orient="records")
 
 
@@ -44,7 +57,7 @@ wrong_button = Button(image=wrong_button_img, highlightthickness=0, command=gene
 wrong_button.grid(column=1, row=2)
 
 correct_button_img = PhotoImage(file="images/right.png")
-correct_button = Button(image=correct_button_img, highlightthickness=0, command=generate_random_word)
+correct_button = Button(image=correct_button_img, highlightthickness=0, command=card_known)
 correct_button.grid(column=2, row=2)
 
 generate_random_word()
