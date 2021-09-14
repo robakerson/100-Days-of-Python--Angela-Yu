@@ -6,10 +6,12 @@ BACKGROUND_COLOR = "#B1DDC6"
 current_card = {}
 # ---------------------------- Generate & Place Words! ------------------------------- #
 
+
 def flip_card():
     canvas.itemconfig(lang_text, text="English", fill="white")
     canvas.itemconfig(word_text, text=current_card["English"], fill="white")
     canvas.itemconfig(card_image, image=card_back)
+
 
 def generate_random_word():
     global current_card, flip_timer
@@ -60,10 +62,9 @@ correct_button_img = PhotoImage(file="images/right.png")
 correct_button = Button(image=correct_button_img, highlightthickness=0, command=card_known)
 correct_button.grid(column=2, row=2)
 
-generate_random_word()
 
 # --------------------------------------------------------------------------------- #
 
 
-
+generate_random_word()
 window.mainloop()
