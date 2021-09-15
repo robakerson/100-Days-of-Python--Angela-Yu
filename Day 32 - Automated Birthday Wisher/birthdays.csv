@@ -1,3 +1,8 @@
 name,email,year,month,day
 Test,test@email.com,1961,12,21
-[Fill this in!]
+AAAA,test@email.com,1961,12,21
+AAAB,test@email.com,1961,9,14
+AAAC,test@email.com,1961,12,21
+AAAD,test@email.com,1961,12,21
+SECOND_NAME,test@email.com,1961,9,14
+AAAF,test@email.com,1961,12,21
