@@ -4,13 +4,6 @@ from random import *
 today = dt.datetime.now()
 
 
-def email_quote():
-    with smtplib.SMTP("smtp.mailtrap.io", 2525) as server:
-        server.login("private")
-        server.sendmail(sender, receiver, message)
-
-
-
 with open("quotes.txt") as file:
     quotes = file.readlines()
 quote = choice(quotes)
@@ -26,7 +19,9 @@ From: {sender}
 {quote}"""
 
 if today.weekday() == 1:
-    email_quote()
+    with smtplib.SMTP("smtp.mailtrap.io", 2525) as server:
+        server.login("private")
+        server.sendmail(sender, receiver, message)
 
 
 # import smtplib
