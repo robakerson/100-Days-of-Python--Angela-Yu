@@ -17,8 +17,8 @@ class QuizInterface:
 
         true_button = PhotoImage(file="images/true.png")
         false_button = PhotoImage(file="images/false.png")
-        self.true = Button(image=true_button, highlightthickness=0)
-        self.false = Button(image=false_button, highlightthickness=0)
+        self.true = Button(image=true_button, highlightthickness=0, command=self.usersel_true)
+        self.false = Button(image=false_button, highlightthickness=0, command=self.usersel_false)
         self.true.grid(column=1, row=4)
         self.false.grid(column=2, row=4)
 
@@ -33,5 +33,21 @@ class QuizInterface:
         self.window.mainloop()
 
     def get_next_question(self):
+        self.canvas.configure(bg="white")
         q_text = self.quiz.next_question()
         self.canvas.itemconfig(self.question_text, text=q_text)
+
+    def usersel_true(self):
+        self.give_feedback(self.quiz.check_answer("True"))
+
+    def usersel_false(self):
+        self.give_feedback(self.quiz.check_answer("False"))
+
+    def give_feedback(self, user_correct):
+        if user_correct:
+            self.canvas.configure(bg="green")
+        else:
+            self.canvas.configure(bg="red")
+
+        self.window.after(1000, self.get_next_question)
+
