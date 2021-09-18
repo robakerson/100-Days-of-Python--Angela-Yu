@@ -1,16 +1,25 @@
-# This is a sample Python script.
+import requests
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+API_KEY = ""
+CITY = "Cedar Rapids,US"
+LAT = 42.0083
+LONG = -91.6441
+# API_CALL = f"http://api.openweathermap.org/data/2.5/weather"
+# CALL_PARAMS = {
+#     "q": CITY,
+#     "appid": API_KEY,
+# }
+API_ONECALL = f"https://api.openweathermap.org/data/2.5/onecall"
+ONECALL_PARAMS = {
+    "lat": LAT,
+    "lon": LONG,
+    "appid": API_KEY,
+}
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+res = requests.get(url=API_ONECALL, params=ONECALL_PARAMS)
+res.raise_for_status()
+data = res.json()
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(res)
+print(data)
