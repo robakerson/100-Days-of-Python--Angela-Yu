@@ -1,9 +1,9 @@
 import requests
-import os
 from twilio.rest import Client
 
-API_KEY = ""
-CITY = "Cedar Rapids,US"
+# -------------- don't upload ---------------- #
+
+
 LAT = 42.0083
 LONG = -91.6441
 
@@ -29,11 +29,12 @@ for _ in range(check_qty_hours):
         if current_weather[num]["id"] < 700:
             it_will_rain = True
 
-# ------ Angela's solution, doesn't check for multiple condition codes?, don't see a huge improvement over mine -------#
-# weather_slice = hourly_data[:check_qty_hours]
-# for hour_data in weather_slice:
-#     if hour_data["weather"][0]["id"] < 700:
-#         it_will_rain = True
-
 if it_will_rain:
-    print("Bring an umbrella")
+    client = Client(ACCT_SID, AUTH_TOKEN)
+    message = client.messages \
+        .create(
+        body="Bring an ☔. It's going to rain",
+        from_=TWILIO_PH,
+        to=PERSONAL_PH,
+    )
+    print(message.status)
