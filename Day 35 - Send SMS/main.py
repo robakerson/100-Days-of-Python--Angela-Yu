@@ -1,8 +1,15 @@
+import os
 import requests
 from twilio.rest import Client
+from dotenv import load_dotenv
 
 # -------------- don't upload ---------------- #
-
+load_dotenv("C:/Users/Bob/Desktop/WebDev/100 Days of Python -Angela Yu/.env.txt")
+API_KEY = os.getenv("OWM_API_KEY")
+ACCT_SID = os.getenv("ACCT_SID")
+AUTH_TOKEN = os.getenv("AUTH_TOKEN")
+TWILIO_PH = os.getenv("TWILIO_PH")
+PERSONAL_PH = os.getenv("PERSONAL_PH")
 
 LAT = 42.0083
 LONG = -91.6441
@@ -38,3 +45,5 @@ if it_will_rain:
         to=PERSONAL_PH,
     )
     print(message.status)
+else:
+    print("HEY")
