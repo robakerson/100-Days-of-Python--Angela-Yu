@@ -15,7 +15,23 @@ user_params = {
     "notMinor": "yes",
 }
 
+# create profile
 # res = requests.post(url=pixela_endpoint, json=user_params)
 # print(res.text)
 
 graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
+graph_params = {
+    "id": "graph1",
+    "name": "Learning to Code",
+    "unit": "hours",
+    "type": "int",
+    "color": "ajisai"
+}
+
+headers = {
+    "X-USER-TOKEN": TOKEN
+}
+
+# create graph
+# res = requests.post(url=graph_endpoint, json=graph_params, headers=headers)
+# print(res.text)
