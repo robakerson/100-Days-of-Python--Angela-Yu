@@ -41,19 +41,12 @@ pixela_endpoint = 'https://pixe.la/v1/users'
 
 # ------- Post a pixel ---------#
 cur_graph = 'graph1'
-cur_graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{cur_graph}"
+add_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{cur_graph}"
 
 # sort today's date in the proper format
 now = datetime.datetime.now()
-year = now.year
-month = now.month
-if month < 10:
-    month = f"0{month}"
-day = now.day
-if day < 10:
-    day = f"0{day}"
-
-today = f"{year}{month}{day}"
+today = now.strftime("%Y%m%d")
+print(today)
 
 pixel_params = {
     "date": today,
@@ -61,5 +54,5 @@ pixel_params = {
 }
 
 # post a pixel!
-res = requests.post(url=cur_graph_endpoint, json=pixel_params, headers=headers)
-print(res.text)
+# res = requests.post(url=add_pixel_endpoint, json=pixel_params, headers=headers)
+# print(res.text)
