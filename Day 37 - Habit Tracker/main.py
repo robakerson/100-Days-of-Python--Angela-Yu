@@ -57,11 +57,18 @@ add_pixel_params = {
 # print(res.text)
 
 # ------- Update a Pixel ---------#
-update_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{cur_graph}/{today}"
+# update_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{cur_graph}/{today}"
+#
+# update_pixel_params = {
+#     "quantity": '2',
+# }
+#
+# # update pixel!
+# res = requests.put(url=update_pixel_endpoint, json=update_pixel_params, headers=headers)
+# print(res.text)
 
-update_pixel_params = {
-    "quantity": '2',
-}
+# ------- Delete a Pixel ---------#
+delete_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{cur_graph}/{today}"
 
-res = requests.put(url=update_pixel_endpoint, json=update_pixel_params, headers=headers)
+res = requests.delete(url=delete_pixel_endpoint, headers=headers)
 print(res.text)
