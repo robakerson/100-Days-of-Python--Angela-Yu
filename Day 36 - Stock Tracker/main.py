@@ -60,7 +60,7 @@ if perc_change > 5:
     # format articles by Headline \n Brief:
     news_list = [f"Headline:{article['title']}\nBrief:{article['description']}" for article in first_three]
     # print(news_list)
-    
+
     # send texts via Twilio
     # client = Client(ACCT_SID, AUTH_TOKEN)
     # for article in news_list:
