@@ -46,13 +46,22 @@ add_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{cur_graph}"
 # sort today's date in the proper format
 now = datetime.datetime.now()
 today = now.strftime("%Y%m%d")
-print(today)
 
-pixel_params = {
+add_pixel_params = {
     "date": today,
     "quantity": '1',
 }
 
 # post a pixel!
-# res = requests.post(url=add_pixel_endpoint, json=pixel_params, headers=headers)
+# res = requests.post(url=add_pixel_endpoint, json=add_pixel_params, headers=headers)
 # print(res.text)
+
+# ------- Update a Pixel ---------#
+update_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{cur_graph}/{today}"
+
+update_pixel_params = {
+    "quantity": '2',
+}
+
+res = requests.put(url=update_pixel_endpoint, json=update_pixel_params, headers=headers)
+print(res.text)
