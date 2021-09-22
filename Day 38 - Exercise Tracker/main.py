@@ -1,13 +1,14 @@
 import os
 import requests
 from dotenv import load_dotenv
+import datetime
 
 load_dotenv("C:/Users/Bob/Desktop/WebDev/100 Days of Python -Angela Yu/.env.txt")
 APP_ID = os.getenv("nutrition_app_id")
 API_KEY = os.getenv("nutrition_api_key")
+SHEETY_USERNAME = os.getenv("sheety_username")
 
-
-headers={
+headers = {
     'x-app-id': APP_ID,
     'x-app-key': API_KEY,
 }
@@ -25,5 +26,26 @@ exercise_request_params = {
 res = requests.post(url=exercise_request_endpoint, json=exercise_request_params, headers=headers)
 res.raise_for_status()
 
-print(res)
-print(res.text)
+result = res.json()
+
+today_date = datetime.datetime.now().strftime("%d/%m/%Y")
+now_time = datetime.datetime.now().strftime("%X")
+
+sheety_endpoint = f"https://api.sheety.co/{SHEETY_USERNAME}/workoutTracking/workouts"
+
+for exercise in result["exercises"]:
+    sheety_parameters = {
+        "workout": {
+            "date": today_date,
+            "time": now_time,
+            "exercise": exercise["name"].title(),
+            "duration": exercise["duration_min"],
+            "calories": exercise["nf_calories"]
+        }
+    }
+
+    res = requests.post(url=sheety_endpoint, json=sheety_parameters)
+    res.raise_for_status()
+
+    print(res)
+    print(res.text)
