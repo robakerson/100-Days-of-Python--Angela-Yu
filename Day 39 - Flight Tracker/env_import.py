@@ -12,3 +12,5 @@ sheety_endpoint = f"https://api.sheety.co/{SHEETY_USERNAME}/flightDeals/prices"
 sheety_header = {
     'Authorization': SHEETY_AUTH
 }
+TEQUILA_ENDPOINT = os.getenv('tequila_endpoint_url')
+TEQUILA_API_KEY = os.getenv('tequila_api_key')
