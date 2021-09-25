@@ -3,5 +3,7 @@ class FlightSearch:
     def __init__(self):
         pass
 
-    def search_city(self, city):
-        return "TESTING"
+    def get_destination_code(self, city_name):
+        # Return "TESTING" for now to make sure Sheety is working. Get TEQUILA API data later.
+        code = "TESTING"
+        return code
