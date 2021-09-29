@@ -5,11 +5,6 @@ res = requests.get(url="https://news.ycombinator.com/news")
 yc_webpage = res.text
 
 soup = BeautifulSoup(yc_webpage, 'html.parser')
-# titles = soup.select(selector=".storylink")
-# print(titles)
-
-# title = soup.select_one(selector=".storylink")
-# print(title.text)
 
 articles = soup.find_all(name='a', class_='storylink')
 
@@ -23,14 +18,14 @@ for article_tag in articles:
 
 article_scores = [int(score.getText().split()[0]) for score in soup.find_all(name='span', class_='score')]
 
-print(article_texts)
-print(article_links)
-print(article_scores)
+# print(article_texts)
+# print(article_links)
+# print(article_scores)
 
+index_of_highest_score = article_scores.index(max(article_scores))  # find index of highest scoring article
 
-
-
-
+print(article_texts[index_of_highest_score])  # print text from highest scoring article
+print(article_links[index_of_highest_score])  # print link from highest scoring article
 
 
 # with open("website.html", encoding='utf-8') as file:
