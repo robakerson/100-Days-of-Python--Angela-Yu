@@ -1,15 +1,21 @@
 from bs4 import BeautifulSoup
 import requests
 
-URL = "https://www.empireonline.com/movies/features/best-movies-2/"
+URL = "https://www.theguardian.com/film/2019/sep/13/100-best-films-movies-of-the-21st-century"
 res = requests.get(url=URL)
 movies_site = res.text
 
-# print(movies_site)
 soup = BeautifulSoup(movies_site, 'html.parser')
-# articles = soup.find_all(name='div', class_='jsx-4245974604')
-articles = soup.find_all(name='h3')
+articles = soup.find_all(name='h2')
 
-# att_two = soup.select(selector=".jsx-4245974604")
+articles_text = []
+for _ in range(len(articles)):
+    if _ % 2 == 0:
+        articles_text.append(f"{articles[_].text} {articles[_+1].text}")
+    # print(articles[_].text)
+    # print(_ % 2)
 
-print(articles)
+with open("movies.txt", "w") as file:
+    for _ in range(100):
+        file.write(articles_text[_])
+        file.write("\n")
