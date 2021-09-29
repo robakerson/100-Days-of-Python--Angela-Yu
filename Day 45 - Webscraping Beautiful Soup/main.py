@@ -1,9 +1,42 @@
 from bs4 import BeautifulSoup
+import requests
 
-with open("website.html", encoding='utf-8') as file:
-    contents = file.read()
+res = requests.get(url="https://news.ycombinator.com/news")
+yc_webpage = res.text
 
-soup = BeautifulSoup(contents, 'html.parser')
+soup = BeautifulSoup(yc_webpage, 'html.parser')
+# titles = soup.select(selector=".storylink")
+# print(titles)
+
+# title = soup.select_one(selector=".storylink")
+# print(title.text)
+
+articles = soup.find_all(name='a', class_='storylink')
+
+article_texts = []
+article_links = []
+for article_tag in articles:
+    text = article_tag.getText()
+    article_texts.append(text)
+    link = article_tag.get("href")
+    article_links.append(link)
+
+article_scores = [int(score.getText().split()[0]) for score in soup.find_all(name='span', class_='score')]
+
+print(article_texts)
+print(article_links)
+print(article_scores)
+
+
+
+
+
+
+
+# with open("website.html", encoding='utf-8') as file:
+#     contents = file.read()
+#
+# soup = BeautifulSoup(contents, 'html.parser')
 
 # print(soup.meta)
 # print(soup.title.text)
@@ -24,7 +57,7 @@ soup = BeautifulSoup(contents, 'html.parser')
 #
 # company_url = soup.select_one(selector="p a")  # "p a" is the CSS selector that finds the anchor tag that lies within a paragraph tag
 # print(company_url)
-
-all_headings = soup.select(selector=".heading")  # select all elements with class of heading
-print(all_headings)
-
+#
+# all_headings = soup.select(selector=".heading")  # select all elements with class of heading
+# print(all_headings)
+#
