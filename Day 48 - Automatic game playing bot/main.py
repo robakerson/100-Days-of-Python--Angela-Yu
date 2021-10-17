@@ -12,10 +12,29 @@ driver = webdriver.Chrome(service=s)
 driver.maximize_window()
 
 # open a webpage
-driver.get("https://www.amazon.com/SAMSUNG-Adjustable-TUV-Certified-Intelligent-LS34A650UXNXGO/dp/B08V71HXY3/?_encoding=UTF8&pd_rd_w=SyuEX&pf_rd_p=8b894231-4b84-44da-9446-c27cf0e8abc2&pf_rd_r=G7MHA3TQANNE9BCZ7D07&pd_rd_r=20fb8069-6a4c-4704-ae9b-60378e4a183e&pd_rd_wg=7Ot9R&ref_=pd_gw_ci_mcx_mr_hp_d")
-price = driver.find_element(By.ID, "priceblock_ourprice")
-print(price.text)
+# driver.get("https://www.amazon.com/SAMSUNG-Adjustable-TUV-Certified-Intelligent-LS34A650UXNXGO/dp/B08V71HXY3/?_encoding=UTF8&pd_rd_w=SyuEX&pf_rd_p=8b894231-4b84-44da-9446-c27cf0e8abc2&pf_rd_r=G7MHA3TQANNE9BCZ7D07&pd_rd_r=20fb8069-6a4c-4704-ae9b-60378e4a183e&pd_rd_wg=7Ot9R&ref_=pd_gw_ci_mcx_mr_hp_d")
+# price = driver.find_element(By.ID, "priceblock_ourprice")
+# price = driver.find_element(By.XPATH, '//*[@id="nav-logo-sprites"]')
 
+driver.get("https://www.python.org/")
+
+dates = driver.find_elements(By.CSS_SELECTOR, ".event-widget time")
+event_names = driver.find_elements(By.CSS_SELECTOR, ".event-widget li a")
+
+for date in dates:
+    print(date.text)
+
+for event in event_names:
+    print(event.text)
+events={}
+
+for i in range(len(event_names)):
+    events[i] = {
+        "time": dates[i].text,
+        "name": event_names[i].text
+    }
+
+print(events)
 
 # close the browser
 # driver.close()
