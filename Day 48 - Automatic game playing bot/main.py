@@ -38,4 +38,4 @@ print(events)
 
 # close the browser
 # driver.close()
-driver.quit()
+# driver.quit()
