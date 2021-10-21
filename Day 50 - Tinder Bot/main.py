@@ -22,10 +22,10 @@ driver.maximize_window()
 
 driver.get("https://tinder.com/")
 
-login = driver.find_element(By.XPATH, "//*[@id='c-364499427']/div/div[1]/div/main/div[1]/div/div/div/div/header/div/div[2]/div[2]/a")
+login = driver.find_element(By.XPATH, '//*[@id="o1097080572"]/div/div[1]/div/main/div[1]/div/div/div/div/header/div/div[2]/div[2]/a')
 
 try:
-    accept_privacy = driver.find_element(By.XPATH, '//*[@id="c-364499427"]/div/div[2]/div/div/div[1]/button')
+    accept_privacy = driver.find_element(By.XPATH, '//*[@id="o1097080572"]/div/div[2]/div/div/div[1]/button')
     accept_privacy.click()
 except:
     pass
@@ -34,7 +34,7 @@ login.click()
 
 # click "login with facebook" button
 time.sleep(1)
-login_FB = driver.find_element(By.XPATH, '//*[@id="c-143158991"]/div/div/div[1]/div/div[3]/span/div[2]/button')
+login_FB = driver.find_element(By.XPATH, '//*[@id="o1318421008"]/div/div/div[1]/div/div[3]/span/div[2]/button')
 login_FB.click()
 
 # make facebook login active window
@@ -55,14 +55,14 @@ looking_for_location_tracking_button = True
 while  looking_for_location_tracking_button:
     try:
         time.sleep(3)
-        location_accept = driver.find_element(By.XPATH, '//*[@id="c-143158991"]/div/div/div/div/div[3]/button[1]')
+        location_accept = driver.find_element(By.XPATH, '//*[@id="o1318421008"]/div/div/div/div/div[3]/button[1]')
         location_accept.click()
         looking_for_location_tracking_button = False
     except:
         pass
 
 time.sleep(1)
-no_notifications = driver.find_element(By.XPATH, '//*[@id="c-143158991"]/div/div/div/div/div[3]/button[2]')
+no_notifications = driver.find_element(By.XPATH, '//*[@id="o1318421008"]/div/div/div/div/div[3]/button[2]')
 no_notifications.click()
 
 # find the initial like button with exception handling
@@ -71,15 +71,15 @@ not_loaded = True
 while not_loaded:
     try:
         time.sleep(2)
-        like_button = driver.find_element(By.XPATH, '//*[@id="c-364499427"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[4]/div/div[4]/button/span/span')
+        like_button = driver.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[5]/div/div[4]/button')
         like_button.click()
-        not_loaded = False
+        # not_loaded = False
     except:
         try:
             like_button = driver.find_element(By.XPATH,
-                                             '//*[@id="c-364499427"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[5]/div/div[4]/button/span/span')
+                                             '/html/body/div[1]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[4]/div/div[4]/button')
             like_button.click()
-            not_loaded = False
+            # not_loaded = False
         except:
             print("WTF")
             pass
@@ -90,12 +90,12 @@ no_popups = True
 while no_popups:
     time.sleep(1.5)
     try:
-        like_button = driver.find_element(By.XPATH, '//*[@id="c-364499427"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[4]/div/div[4]/button/span/span')
+        like_button = driver.find_element(By.XPATH, '//*[@id="o1097080572"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[4]/div/div[4]/button')
         like_button.click()
     except:
         try:
             like_button = driver.find_element(By.XPATH,
-                                              '//*[@id="c-364499427"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[5]/div/div[4]/button/span/span')
+                                              '//*[@id="o1097080572"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[4]/div/div[4]/button')
             like_button.click()
         except:
             try:
