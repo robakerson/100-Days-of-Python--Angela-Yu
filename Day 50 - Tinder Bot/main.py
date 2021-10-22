@@ -98,7 +98,7 @@ while no_popups:
             like_button.click()
         except:
             try:
-                not_interested = driver.find_element(By.XPATH, '//*[@id="c-143158991"]/div/div/div[2]/button[2]/span')
+                not_interested = driver.find_element(By.XPATH, '/html/body/div[2]/div/div/div[3]/button')
                 not_interested.click()
             except:
                 try:
