@@ -102,11 +102,11 @@ while no_popups:
                 not_interested.click()
             except:
                 try:
-                    x_button = driver.find_element(By.XPATH, '//*[@id="c-143158991"]/div/div/div[3]/button/svg')
+                    x_button = driver.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/div/main/div[2]/div/div/div[1]/div/div[4]/button')
                     x_button.click()
                 except:
                     try:
-                        buy_window = driver.find_element(By.XPATH, '//*[@id="c-143158991"]/div/div/div[3]/button/span')
+                        buy_window = driver.find_element(By.XPATH, '/html/body/div[2]/div/div/div[2]/button[2]')
                         driver.close()
                         no_popups=False
                     except:
