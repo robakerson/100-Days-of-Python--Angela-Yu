@@ -27,26 +27,5 @@ def name(name):
            f'<h3>And maybe {age} years old<h3>'
 
 
-<<<<<<< HEAD
-=======
-# my_params = {
-#         'name': 'tim',
-#     }
-#
-# res = requests.get(url="https://api.genderize.io", params=my_params)
-#
-# print(res.json())
-# print(res.text)
-#
-# text = res.text
-# print(res.json)
-# print(text)
-# print(text[0])
-# print(text[1])
-#
-# hey = {"name":"tim","gender":"male","probability":0.99,"count":47038}
-# print(hey['name'])
-
->>>>>>> 26a8a7be679831432759fa5e827e5ae93f2140ae
 if __name__ == '__main__':
     app.run(debug=True)
