@@ -21,5 +21,13 @@ def contact():
     return render_template('contact.html')
 
 
+@app.route('/post/<int:post_num>')
+def post(post_num):
+    for post in API_BLOG_POSTS:
+        if post['id']==post_num:
+            requested_post = post
+    return render_template('post.html', post=requested_post)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
