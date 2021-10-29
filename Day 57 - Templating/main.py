@@ -22,9 +22,7 @@ def name(name):
     age = res.json()['age']
     res = requests.get(url="https://api.genderize.io", params=my_params)
     gender = res.json()['gender']
-    return f'<h1>Hey {name.title()},<h1>' \
-           f'<h2>I think you are {gender},<h2>' \
-           f'<h3>And maybe {age} years old<h3>'
+    return render_template("guess.html", name=name, age=age, gender=gender)
 
 
 if __name__ == '__main__':
